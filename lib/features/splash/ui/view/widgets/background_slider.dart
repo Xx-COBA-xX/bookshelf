@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../constant.dart';
+import '../../../../../core/utils/color.dart';
 
 class BackgroundSlider extends StatelessWidget {
   const BackgroundSlider({

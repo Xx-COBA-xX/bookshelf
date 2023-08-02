@@ -1,6 +1,6 @@
+import 'package:bookshelf/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../constant.dart';
 
 class LogoAnimation extends StatelessWidget {
   const LogoAnimation({
@@ -27,7 +27,7 @@ class LogoAnimation extends StatelessWidget {
               width: isAnimated ? size.width * 0.6 : 0,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(logo),
+                  image: AssetImage(Assets.logo),
                 ),
               ),
             ),

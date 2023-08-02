@@ -1,6 +1,5 @@
-import 'package:bookshelf/constant.dart';
 import 'package:bookshelf/core/utils/app_router.dart';
-import 'package:bookshelf/features/splash/ui/view/splash_view.dart';
+import 'package:bookshelf/core/utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

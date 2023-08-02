@@ -26,7 +26,13 @@ class _SplashViewBodyState extends State<SplashViewBody>
     super.initState();
 
     initSlideBackgroundAnimation();
-    navigatorToHomeView();
+    navigatorToLoginView();
+  }
+
+  @override
+  void deactivate() {
+    controller.dispose();
+    super.deactivate();
   }
 
   void initSlideBackgroundAnimation() {
@@ -64,9 +70,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
     );
   }
 
-  void navigatorToHomeView() {
+  void navigatorToLoginView() {
     Future.delayed(const Duration(seconds: 5), () {
-      GoRouter.of(context).push(AppRouter.kHomeViewRoute);
+      GoRouter.of(context).push(AppRouter.kLoginViewRoute);
     });
   }
 }
