@@ -1,4 +1,5 @@
 import 'package:bookshelf/constant.dart';
+import 'package:bookshelf/core/utils/app_router.dart';
 import 'package:bookshelf/features/splash/ui/view/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,15 +14,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Bookshelf app',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: Colors.white,
         colorScheme: ColorScheme.fromSeed(seedColor: kPrimaryColor),
         useMaterial3: true,
         textTheme: GoogleFonts.robotoTextTheme(ThemeData.light().textTheme),
       ),
-      home: const SplashView(),
+      routerConfig: AppRouter.router,
     );
   }
 }
