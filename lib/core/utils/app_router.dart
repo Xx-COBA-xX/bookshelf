@@ -3,10 +3,12 @@ import 'package:bookshelf/features/home/ui/view/home_view.dart';
 import 'package:bookshelf/features/splash/ui/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/ui/view/logup_view.dart';
+
 class AppRouter {
   static const String kHomeViewRoute = "/homeView";
-  static const String kLoginViewRoute = "/loginView";
-  static const String kLogUpViewRoute = "/logupView";
+  static const String kSigninViewRoute = "/SigninView";
+  static const String kSignupViewRoute = "/SignupView";
   static final router = GoRouter(routes: [
     GoRoute(
       path: "/",
@@ -17,8 +19,12 @@ class AppRouter {
       builder: (context, state) => const HomeView(),
     ),
     GoRoute(
-      path: kLoginViewRoute,
-      builder: (context, state) => const LoginView(),
+      path: kSigninViewRoute,
+      builder: (context, state) => const SignInView(),
+    ),
+    GoRoute(
+      path: kSignupViewRoute,
+      builder: (context, state) => const SignUpView(),
     ),
   ]);
 }

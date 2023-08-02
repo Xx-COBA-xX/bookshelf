@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/signin_view_body.dart';
+import 'widgets/signup_view_body.dart';
 
-class SignInView extends StatelessWidget {
-  const SignInView({super.key});
+class SignUpView extends StatelessWidget {
+  const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Scaffold(
-        body: SignInViewBody(),
+        body: SignUpViewBody(),
       ),
     );
   }
