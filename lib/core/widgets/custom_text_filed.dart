@@ -57,21 +57,21 @@ class _CustomTextFieldState extends State<CustomTextField> {
             fillColor: kFiledColor,
             hintText: widget.hintText,
             hintStyle: Style.textStyle14.copyWith(color: Colors.black38),
-            suffixIcon: IconButton(
-              icon: Icon(
-                widget.isPassword
-                    ? showPassword
-                        ? CupertinoIcons.eye
-                        : CupertinoIcons.eye_slash
-                    : null,
-                color: kPrimaryColor,
-              ),
-              onPressed: () {
-                setState(() {
-                  showPassword = !showPassword;
-                });
-              },
-            ),
+            suffixIcon: widget.isPassword
+                ? IconButton(
+                    icon: Icon(
+                      showPassword
+                          ? CupertinoIcons.eye
+                          : CupertinoIcons.eye_slash,
+                      color: kPrimaryColor,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        showPassword = !showPassword;
+                      });
+                    },
+                  )
+                : null,
             prefixIcon: Icon(
               widget.icon,
               color: kPrimaryColor,

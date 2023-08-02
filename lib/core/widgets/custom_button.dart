@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 
 import '../utils/color.dart';
@@ -7,13 +8,16 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     Key? key,
     required this.btnText,
+    this.onPressed,
   }) : super(key: key);
   final String btnText;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return CupertinoButton(
       padding: EdgeInsets.zero,
       borderRadius: BorderRadius.circular(8),
+      onPressed: onPressed,
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
@@ -31,7 +35,6 @@ class CustomButton extends StatelessWidget {
           ),
         ),
       ),
-      onPressed: () {},
     );
   }
 }

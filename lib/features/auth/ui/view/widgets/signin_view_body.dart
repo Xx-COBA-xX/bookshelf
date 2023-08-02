@@ -1,108 +1,101 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, unused_field
 import 'package:bookshelf/core/utils/app_router.dart';
-import 'package:bookshelf/core/utils/color.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:bookshelf/constant.dart';
 import 'package:bookshelf/core/utils/styles.dart';
 import 'package:bookshelf/core/widgets/custom_button.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/widgets/custom_text_filed.dart';
 import 'build_logo.dart';
+import 'build_signin_view_form.dart';
 import 'build_title_and_subtitle.dart';
+import 'build_userqustion_about_account.dart';
 import 'custom_social_midai_buttons.dart';
 import 'custom_text_button.dart';
 
-class SignInViewBody extends StatelessWidget {
+class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
 
+  @override
+  State<SignInViewBody> createState() => _SignInViewBodyState();
+}
+
+class _SignInViewBodyState extends State<SignInViewBody> {
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  final GlobalKey<FormState> _key = GlobalKey();
+  String email = '';
+  String password = '';
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 18),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          SizedBox(
-            height: (size.height * .05) / 1.5,
-          ),
-          const BuildLogo(),
-          mainSize,
-          const BuildTitleAndSubTitle(
-            title: "Let’s sign you in.",
-            supTitle: "Welcome back, You’ve been missed.",
-          ),
-          mainSize,
-          Form(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomTextField(
-                  autovalidateMode: autovalidateMode,
-                  label: "Email",
-                  icon: FontAwesomeIcons.envelope,
-                  hintText: "Email address...",
-                  inputType: TextInputType.emailAddress,
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                CustomTextField(
-                  autovalidateMode: autovalidateMode,
-                  label: "password",
-                  icon: Icons.lock_outline,
-                  hintText: "Password...",
-                  inputType: TextInputType.emailAddress,
-                  isPassword: true,
-                ),
-              ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SizedBox(
+              height: (size.height * .05) / 1.5,
             ),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          const CustomTextButton(
-            style: Style.textStyle16,
-            text: "Forgot Password ?",
-          ),
-          mainSize,
-          const CustomButton(
-            btnText: "Sign In",
-          ),
-          mainSize,
-          const Text(
-            'or continue with ',
-            style: Style.textStyle16,
-            textAlign: TextAlign.center,
-          ),
-          mainSize,
-          const CustomSocialMidaButton(),
-          mainSize,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "don't have an account ?",
-                style: Style.textStyle16,
-              ),
-              CustomTextButton(
-                text: ' Register now',
-                style: Style.textStyle16.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
-                onTap: () {
+            const BuildLogo(),
+            mainSize,
+            const BuildTitleAndSubTitle(
+              title: "Let’s sign you in.",
+              supTitle: "Welcome back, You’ve been missed.",
+            ),
+            mainSize,
+            SingInViewForm(
+              autovalidateMode: autovalidateMode,
+              myKey: _key,
+              emailOnSaved: (value) {
+                email = value!;
+              },
+              passwordOnSaved: (value) {
+                password = value!;
+              },
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            const CustomTextButton(
+              style: Style.textStyle16,
+              text: "Forgot Password ?",
+            ),
+            mainSize,
+            CustomButton(
+              btnText: "Sign In",
+              onPressed: () {
+                if (_key.currentState!.validate()) {
+                  _key.currentState!.save();
                   GoRouter.of(context)
-                      .pushReplacement(AppRouter.kSignupViewRoute);
-                },
-              )
-            ],
-          )
-        ],
+                      .pushReplacement(AppRouter.kHomeViewRoute);
+                } else {
+                  autovalidateMode = AutovalidateMode.always;
+                  setState(() {});
+                }
+              },
+            ),
+            mainSize,
+            const Text(
+              'or continue with ',
+              style: Style.textStyle16,
+              textAlign: TextAlign.center,
+            ),
+            mainSize,
+            const CustomSocialMidaButton(),
+            mainSize,
+            BuildUserQusitonaboutAccount(
+              onTap: () {
+                GoRouter.of(context)
+                    .pushReplacement(AppRouter.kSignupViewRoute);
+              },
+              qustion: "don't have an account ?",
+              textButton: ' Register now',
+            ),
+          ],
+        ),
       ),
     );
   }

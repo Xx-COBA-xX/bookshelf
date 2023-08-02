@@ -1,9 +1,9 @@
-import 'package:bookshelf/features/auth/ui/view/login_view.dart';
+import 'package:bookshelf/features/auth/ui/view/signin_view.dart';
 import 'package:bookshelf/features/home/ui/view/home_view.dart';
 import 'package:bookshelf/features/splash/ui/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/auth/ui/view/logup_view.dart';
+import '../../features/auth/ui/view/signup_view.dart';
 
 class AppRouter {
   static const String kHomeViewRoute = "/homeView";
