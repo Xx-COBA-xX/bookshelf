@@ -26,11 +26,12 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
   String username = "";
   String password = "";
   String email = "";
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 18),
       child: SingleChildScrollView(
@@ -65,6 +66,9 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     _key.currentState!.save();
                     GoRouter.of(context)
                         .pushReplacement(AppRouter.kHomeViewRoute);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
                   }
                 }),
             mainSize,
