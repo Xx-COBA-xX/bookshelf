@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../../../../../core/utils/styles.dart';
 
@@ -17,8 +17,9 @@ class CustomTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerRight,
-      child: InkWell(
-        onTap: onTap,
+      child: CupertinoButton(
+        padding: EdgeInsets.zero,
+        onPressed: onTap,
         child: Text(
           text,
           style: Style.textStyle16,

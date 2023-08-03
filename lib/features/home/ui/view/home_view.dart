@@ -1,8 +1,6 @@
-import 'package:bookshelf/core/utils/color.dart';
-import 'package:bookshelf/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/custom_appbar.dart';
+import 'widgets/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -11,11 +9,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            CustomAppBar(),
-          ],
-        ),
+        body: HomeViewBody(),
       ),
     );
   }
