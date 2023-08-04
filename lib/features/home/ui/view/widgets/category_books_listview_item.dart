@@ -42,6 +42,8 @@ class CategoryBookListViewItem extends StatelessWidget {
                       "Author name",
                       style: Style.textStyle13.copyWith(
                           fontSize: size.height < 700 ? size.height / 53 : 13),
+                          overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
                     ),
                     const SizedBox(
                       height: 2,
@@ -51,6 +53,9 @@ class CategoryBookListViewItem extends StatelessWidget {
                       style: Style.textStyle16.copyWith(
                         fontSize: size.height < 700 ? size.height / 41 : 17,
                       ),
+                      overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                      
                     ),
                     const SizedBox(
                       height: 4,

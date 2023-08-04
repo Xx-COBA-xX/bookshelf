@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/color.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../auth/ui/view/widgets/custom_text_button.dart';
 
@@ -21,9 +20,7 @@ class BuildNewSectionTitle extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           CustomTextButton(
-            style: Style.textStyle15.copyWith(
-              color: kPrimaryColor,
-            ),
+            style: Style.textStyle15,
             text: "See All",
             onTap: () {},
           )
