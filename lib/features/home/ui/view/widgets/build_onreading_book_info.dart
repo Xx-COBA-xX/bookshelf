@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers
 
+import 'package:bookshelf/core/utils/color.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
@@ -36,8 +37,10 @@ class BuildOnReadingBookInfo extends StatelessWidget {
                 ),
                 Text(
                   "Wather And Ice",
-                  style:
-                      Style.textStyle16.copyWith(fontWeight: FontWeight.w600),
+                  style: Style.textStyle16.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: kTextColor.withOpacity(0.9)
+                  ),
                 ),
               ],
             ),
