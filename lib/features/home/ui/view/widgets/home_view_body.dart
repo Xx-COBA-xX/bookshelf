@@ -1,10 +1,10 @@
-import 'package:bookshelf/core/utils/color.dart';
-import 'package:bookshelf/features/auth/ui/view/widgets/custom_text_button.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_search_bar.dart';
+import 'build_new_section_title.dart';
 import 'custom_appbar.dart';
+import 'on_reading_list_view_item.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({
@@ -13,44 +13,41 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    final Size size = MediaQuery.of(context).size;
+    return Column(
       children: [
-        CustomAppBar(),
-        BuildCustomSearchBar(),
-        BuildNewSectionTitle(
+        const CustomAppBar(),
+        const BuildCustomSearchBar(),
+        const BuildNewSectionTitle(
           title: "On reading",
+        ),
+        OnReadingListView(
+          size: size,
         )
       ],
     );
   }
 }
 
-class BuildNewSectionTitle extends StatelessWidget {
-  const BuildNewSectionTitle({super.key, required this.title});
-
-  final String title;
+class OnReadingListView extends StatelessWidget {
+  const OnReadingListView({
+    Key? key,
+    required this.size,
+  }) : super(key: key);
+  final Size size;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(
-        horizontal: 16,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: Style.textStyle20,
-            textAlign: TextAlign.center,
-          ),
-          CustomTextButton(
-            style: Style.textStyle14.copyWith(
-              color: kPrimaryColor,
-            ),
-            text: "See All",
-            onTap: () {},
-          )
-        ],
+    return SizedBox(
+      height: size.height > 850 ? size.height * .13 : size.height * .14,
+      width: size.width,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return OnReadingListViewItem(
+            size: size,
+          );
+        },
       ),
     );
   }

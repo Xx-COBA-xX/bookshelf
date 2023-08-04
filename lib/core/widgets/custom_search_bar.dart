@@ -30,7 +30,7 @@ class BuildCustomSearchBar extends StatelessWidget {
                 color: kAuthorTextColor,
               ),
               hintText: "Search...",
-              hintStyle: Style.textStyle14
+              hintStyle: Style.textStyle15
                   .copyWith(color: kAuthorTextColor, fontSize: 15)),
           style: Style.textStyle16
               .copyWith(fontSize: 17, fontWeight: FontWeight.w500),

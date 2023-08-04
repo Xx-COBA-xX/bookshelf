@@ -11,6 +11,6 @@ abstract class Style {
   static const textStyle16 =
       TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: kTextColor);
 
-  static const textStyle14 =
-      TextStyle(fontSize: 14, fontWeight: FontWeight.w300, color: kTextColor);
+  static const textStyle15 =
+      TextStyle(fontSize: 15, fontWeight: FontWeight.w300, color: kTextColor);
 }

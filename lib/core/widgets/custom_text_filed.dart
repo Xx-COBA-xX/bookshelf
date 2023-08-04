@@ -57,7 +57,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             filled: true,
             fillColor: kFiledColor,
             hintText: widget.hintText,
-            hintStyle: Style.textStyle14.copyWith(color: Colors.black38),
+            hintStyle: Style.textStyle15.copyWith(color: Colors.black38),
             suffixIcon: widget.isPassword
                 ? IconButton(
                     icon: Icon(
