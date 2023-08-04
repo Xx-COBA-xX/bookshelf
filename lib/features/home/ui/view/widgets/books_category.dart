@@ -18,6 +18,7 @@ class _BooksCategroyState extends State<BooksCategroy> {
       margin: const EdgeInsets.only(top: 32, bottom: 16),
       height: 40,
       child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: booksCategory.length,
         itemBuilder: (context, index) {

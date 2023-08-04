@@ -30,6 +30,7 @@ class BuildOnReadingBookInfo extends StatelessWidget {
                   "Auhter name",
                   style: Style.textStyle15.copyWith(
                     fontWeight: FontWeight.w500,
+                    fontSize: size.height < 700 ? size.height/46 : 15
                   ),
                 ),
                 const SizedBox(
@@ -39,7 +40,8 @@ class BuildOnReadingBookInfo extends StatelessWidget {
                   "Wather And Ice",
                   style: Style.textStyle16.copyWith(
                     fontWeight: FontWeight.w600,
-                    color: kTextColor.withOpacity(0.9)
+                    color: kTextColor.withOpacity(0.9),
+                    fontSize: size.height < 700 ? size.height/43 : 15
                   ),
                 ),
               ],

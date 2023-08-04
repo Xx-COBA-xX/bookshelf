@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
 
-import 'on_reading_list_view_item.dart';
+import 'category_books_listview_item.dart';
 
-class OnReadingListView extends StatelessWidget {
-  const OnReadingListView({
-    Key? key,
-    required this.size,
-  }) : super(key: key);
+class CategoryBookListView extends StatelessWidget {
+  const CategoryBookListView({super.key, required this.size});
   final Size size;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: size.height > 850 ? size.height * .125 : size.height * .135,
-      width: size.width,
+      height: size.height * .31,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemCount: 5,
         itemBuilder: (context, index) {
-          return OnReadingListViewItem(
+          return CategoryBookListViewItem(
+            index: index,
             size: size,
           );
         },

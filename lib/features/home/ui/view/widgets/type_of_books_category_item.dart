@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/color.dart';
 import '../../../../../core/utils/styles.dart';
@@ -31,9 +30,8 @@ class TypeOfBooksCategoryItem extends StatelessWidget {
         child: Text(
           booksCategory[index],
           style: Style.textStyle16.copyWith(
-              color: index == currentIndex ? white : kTextColor,
-              fontSize: 17,
-              fontWeight: FontWeight.w500),
+            color: index == currentIndex ? white : kTextColor,
+          ),
         ),
       ),
     );

@@ -67,15 +67,19 @@ class BuildWelcomeMsg extends StatelessWidget {
       children: [
         Text(
           "Hello HAIDER.",
-          style: Style.textStyle24.copyWith(fontWeight: FontWeight.w600),
+          style: Style.textStyle24.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
         ),
         const SizedBox(
           height: 8,
         ),
         Text(
           "What book would you like to read ?",
-          style: Style.textStyle16.copyWith(color: kPrimaryColor),
-        )
+          style: Style.textStyle16.copyWith(
+            color: kPrimaryColor,
+          ),
+        ),
       ],
     );
   }
