@@ -2,11 +2,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'package:bookshelf/features/home/ui/view/widgets/book_info.dart';
 import 'package:bookshelf/features/home/ui/view/widgets/build_book_image.dart';
 
-import '../../../../../core/utils/color.dart';
-import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_search_bar.dart';
+import 'best_seller_listview.dart';
 import 'books_category.dart';
 import 'build_new_section_title.dart';
 import 'category_book_listview.dart';
@@ -41,40 +41,46 @@ class HomeViewBody extends StatelessWidget {
               const BuildNewSectionTitle(
                 title: "Best Seller",
               ),
-              BestSellerListView(size: size)
+              BestSellerListView(size: size),
+              const BuildNewSectionTitle(
+                title: "Trending Books",
+              ),
             ],
           ),
         ),
-        const SliverFillRemaining(
-            // child: BestSellerListView(),
-            ),
+        SliverToBoxAdapter(
+          child: TrendingBookListIvew(
+            size: size,
+          ),
+        ),
       ],
     );
   }
 }
 
-class BestSellerListView extends StatelessWidget {
-  const BestSellerListView({
+class TrendingBookListIvew extends StatelessWidget {
+  const TrendingBookListIvew({
     Key? key,
     required this.size,
   }) : super(key: key);
   final Size size;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: size.height * .13,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return BestSellerListViewItem(size: size);
-        },
-      ),
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: 5,
+      itemBuilder: (context, index) {
+        return TrendingBooksLIstViewItem(
+          size: size,
+        );
+      },
     );
   }
 }
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({
+class TrendingBooksLIstViewItem extends StatelessWidget {
+  const TrendingBooksLIstViewItem({
     super.key,
     required this.size,
   });
@@ -84,57 +90,20 @@ class BestSellerListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 16),
+      width: size.width,
+      margin: const EdgeInsets.only(left: 16, right: 16, bottom: 8),
       height: size.height * .13,
-      width: 209,
       child: Row(
         children: [
-          const Expanded(
-            flex: 4,
-            child: BuildBookImage(),
+          Expanded(
+            flex: size.width < 370 ? 3 : 2,
+            child: const BuildBookImage(),
           ),
           Expanded(
-            flex: 7,
+            flex: size.width < 370 ? 9 : 8,
             child: Padding(
               padding: const EdgeInsets.all(10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Auhter name",
-                    style: Style.textStyle15.copyWith(
-                      fontWeight: FontWeight.w500,
-                      fontSize: size.height < 700 ? size.height / 46 : 15,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    "Wather And Ice",
-                    style: Style.textStyle16.copyWith(
-                      fontWeight: FontWeight.w600,
-                      color: kTextColor.withOpacity(0.9),
-                      fontSize: size.height < 700 ? size.height / 43 : 16,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                  ),
-                  const Spacer(),
-                  Text(
-                    "\$20",
-                    style: Style.textStyle16.copyWith(
-                      fontWeight: FontWeight.w600,
-                      color: kTextColor.withOpacity(0.9),
-                      fontSize: size.height < 700 ? size.height / 43 : 17,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                  ),
-                ],
-              ),
+              child: BookInfo(size: size),
             ),
           )
         ],

@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
 import 'build_book_image.dart';
@@ -18,7 +17,7 @@ class CategoryBookListViewItem extends StatelessWidget {
       padding: EdgeInsets.zero,
       onPressed: (){},
       child: Container(
-        height: size.height*.31,
+        height: size.height > 800 ? 260 : size.height*.31,
         margin: EdgeInsets.only(left: index == 0 ? 16 : 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,8 +52,6 @@ class CategoryBookListViewItem extends StatelessWidget {
                       style: Style.textStyle16.copyWith(
                         fontSize: size.height < 700 ? size.height / 41 : 17,
                       ),
-                      overflow: TextOverflow.ellipsis,
-                              maxLines: 2,
                       
                     ),
                     const SizedBox(
