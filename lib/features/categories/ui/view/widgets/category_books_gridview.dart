@@ -9,15 +9,14 @@ class BuildBooksCategories extends StatelessWidget {
     required this.size,
   }) : super(key: key);
   final Size size;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      height: size.height,
-      width: size.width,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: gridCount(),
           childAspectRatio: 1 / 1.4,
           crossAxisSpacing: 26,
           mainAxisSpacing: 16,
@@ -31,5 +30,20 @@ class BuildBooksCategories extends StatelessWidget {
         },
       ),
     );
+  }
+
+  int gridCount() {
+    switch (size.width) {
+      case < 500: 
+        return 3;
+      case > 500 && < 800:
+        return 4;
+      case > 800 && < 1200:
+        return 5;
+      // case > 700 && < 800:
+      //   return 6;
+      default:
+        return 6;
+    }
   }
 }

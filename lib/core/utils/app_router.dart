@@ -12,10 +12,10 @@ class AppRouter {
   static const String kSigninViewRoute = "/signinView";
   static const String kSignupViewRoute = "/signupView";
   static const String kCategoriesViewRoute = "/categoiesView";
-  static const String kCartViewRoute = "/cartView";
+  static const String kFavoriteViewRoute = "/favoriteView";
   static final router = GoRouter(routes: [
     GoRoute(
-      path: kCartViewRoute,
+      path: '/',
       builder: (context, state) => const SplashView(),
     ),
     GoRoute(
@@ -35,8 +35,8 @@ class AppRouter {
       builder: (context, state) => const SignUpView(),
     ),
     GoRoute(
-      path: '/',
-      builder: (context, state) => const CartView(),
+      path: kFavoriteViewRoute,
+      builder: (context, state) => const FavoriteView(),
     ),
   ]);
 }
