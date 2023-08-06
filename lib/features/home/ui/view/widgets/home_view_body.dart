@@ -2,10 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:bookshelf/features/home/ui/view/widgets/book_info.dart';
-import 'package:bookshelf/features/home/ui/view/widgets/build_book_image.dart';
-
 import '../../../../../core/widgets/custom_search_bar.dart';
+import '../../../../../core/widgets/vertical_books_listview.dart';
 import 'best_seller_listview.dart';
 import 'books_category.dart';
 import 'build_new_section_title.dart';
@@ -49,7 +47,7 @@ class HomeViewBody extends StatelessWidget {
           ),
         ),
         SliverToBoxAdapter(
-          child: TrendingBookListIvew(
+          child: VerticalBooksListView(
             size: size,
           ),
         ),
@@ -58,56 +56,6 @@ class HomeViewBody extends StatelessWidget {
   }
 }
 
-class TrendingBookListIvew extends StatelessWidget {
-  const TrendingBookListIvew({
-    Key? key,
-    required this.size,
-  }) : super(key: key);
-  final Size size;
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: 5,
-      itemBuilder: (context, index) {
-        return TrendingBooksLIstViewItem(
-          size: size,
-        );
-      },
-    );
-  }
-}
 
-class TrendingBooksLIstViewItem extends StatelessWidget {
-  const TrendingBooksLIstViewItem({
-    super.key,
-    required this.size,
-  });
 
-  final Size size;
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: size.width,
-      margin: const EdgeInsets.only(left: 16, right: 16, bottom: 8),
-      height: size.height * .13,
-      child: Row(
-        children: [
-          Expanded(
-            flex: size.width < 370 ? 3 : 2,
-            child: const BuildBookImage(),
-          ),
-          Expanded(
-            flex: size.width < 370 ? 9 : 8,
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: BookInfo(size: size),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}

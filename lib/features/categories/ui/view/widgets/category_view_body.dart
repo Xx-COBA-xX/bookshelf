@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'category_books_gridview.dart';
-import 'custom_appbar_title.dart';
+import '../../../../../core/widgets/custom_appbar_title.dart';
 
 class CategoryViewBody extends StatelessWidget {
   const CategoryViewBody({super.key});
@@ -13,7 +13,9 @@ class CategoryViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CustomAppBarTitle(),
+          const CustomAppBarTitle(
+            title: 'Categories',
+          ),
           BuildBooksCategories(
             size: size,
           )

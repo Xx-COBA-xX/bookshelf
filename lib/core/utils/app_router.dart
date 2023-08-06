@@ -1,4 +1,5 @@
 import 'package:bookshelf/features/auth/ui/view/signin_view.dart';
+import 'package:bookshelf/features/favorite/ui/view/favorite_view.dart';
 import 'package:bookshelf/features/categories/ui/view/categories_view.dart';
 import 'package:bookshelf/features/home/ui/view/home_view.dart';
 import 'package:bookshelf/features/splash/ui/view/splash_view.dart';
@@ -11,9 +12,10 @@ class AppRouter {
   static const String kSigninViewRoute = "/signinView";
   static const String kSignupViewRoute = "/signupView";
   static const String kCategoriesViewRoute = "/categoiesView";
+  static const String kCartViewRoute = "/cartView";
   static final router = GoRouter(routes: [
     GoRoute(
-      path: kCategoriesViewRoute,
+      path: kCartViewRoute,
       builder: (context, state) => const SplashView(),
     ),
     GoRoute(
@@ -21,7 +23,7 @@ class AppRouter {
       builder: (context, state) => const HomeView(),
     ),
     GoRoute(
-      path: "/",
+      path: kCategoriesViewRoute,
       builder: (context, state) => const CategoriesView(),
     ),
     GoRoute(
@@ -31,6 +33,10 @@ class AppRouter {
     GoRoute(
       path: kSignupViewRoute,
       builder: (context, state) => const SignUpView(),
+    ),
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const CartView(),
     ),
   ]);
 }
