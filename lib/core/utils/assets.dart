@@ -5,4 +5,5 @@ abstract class Assets {
   static const facebookLogo = "assets/icons/Facbook.svg";
   static const appleLogo = "assets/icons/apple.svg";
   static const testImage = "assets/images/test_image.png";
+  static const personImage = "assets/images/ali.png";
 }

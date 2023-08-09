@@ -1,6 +1,7 @@
 import 'package:bookshelf/features/auth/ui/view/signin_view.dart';
 import 'package:bookshelf/features/favorite/ui/view/favorite_view.dart';
 import 'package:bookshelf/features/categories/ui/view/categories_view.dart';
+import 'package:bookshelf/features/home/ui/view/books_details_view..dart';
 import 'package:bookshelf/features/home/ui/view/home_view.dart';
 import 'package:bookshelf/features/splash/ui/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
@@ -13,6 +14,7 @@ class AppRouter {
   static const String kSignupViewRoute = "/signupView";
   static const String kCategoriesViewRoute = "/categoiesView";
   static const String kFavoriteViewRoute = "/favoriteView";
+  static const String kBookDetailsView = "/bookDetailsView";
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
@@ -38,5 +40,9 @@ class AppRouter {
       path: kFavoriteViewRoute,
       builder: (context, state) => const FavoriteView(),
     ),
+    GoRoute(
+      path: kBookDetailsView,
+       builder: (context, state) => const BookDetailsView(),
+    )
   ]);
 }

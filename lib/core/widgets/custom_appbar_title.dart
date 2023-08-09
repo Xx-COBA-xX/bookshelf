@@ -13,17 +13,18 @@ class CustomAppBarTitle extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.topCenter,
-      padding: const EdgeInsets.only(top: 15),
-      child: Text(
-        title,
-        style: Style.textStyle24.copyWith(
-          fontWeight: FontWeight.w600,
+      child: Center(
+        child: Text(
+          title,
+          style: Style.textStyle24.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(70);
+  Size get preferredSize => const Size.fromHeight(80);
 
 }

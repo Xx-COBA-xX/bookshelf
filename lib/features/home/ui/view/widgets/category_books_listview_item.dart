@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 
 import '../../../../../core/utils/styles.dart';
@@ -8,14 +9,16 @@ class CategoryBookListViewItem extends StatelessWidget {
     Key? key,
     required this.size,
     required this.index,
+    this.onPressed,
   }) : super(key: key);
   final Size size;
   final int index;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return CupertinoButton(
       padding: EdgeInsets.zero,
-      onPressed: (){},
+      onPressed: onPressed,
       child: Container(
         height: size.height > 800 ? 260 : size.height*.31,
         margin: EdgeInsets.only(left: index == 0 ? 16 : 8),

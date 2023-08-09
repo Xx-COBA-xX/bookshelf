@@ -1,12 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
 import '../../../../auth/ui/view/widgets/custom_text_button.dart';
 
 class BuildNewSectionTitle extends StatelessWidget {
-  const BuildNewSectionTitle({super.key, required this.title});
+  const BuildNewSectionTitle({
+    Key? key,
+    required this.title,
+     this.seeAll = true,
+  }) : super(key: key);
 
   final String title;
+  final bool seeAll;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,11 +25,11 @@ class BuildNewSectionTitle extends StatelessWidget {
             style: Style.textStyle20,
             textAlign: TextAlign.center,
           ),
-          CustomTextButton(
+          seeAll? CustomTextButton(
             style: Style.textStyle15,
             text: "See All",
             onTap: () {},
-          )
+          ) : const SizedBox()
         ],
       ),
     );

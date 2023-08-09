@@ -1,4 +1,6 @@
+import 'package:bookshelf/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'category_books_listview_item.dart';
 
@@ -16,6 +18,9 @@ class CategoryBookListView extends StatelessWidget {
           return CategoryBookListViewItem(
             index: index,
             size: size,
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.kBookDetailsView);
+            },
           );
         },
       ),
